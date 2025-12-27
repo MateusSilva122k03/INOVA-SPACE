@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Linear-style Deep Purple Base */
+  --background: 268 75% 5%;
+  /* Deepest Purple #110022 - A mix of void and user's #240046 */
+  --foreground: 210 20% 98%;
+
+  /* Glass Cards with Purple Tint */
+  --card: 268 75% 8%;
+  --card-foreground: 210 20% 98%;
+
+  --popover: 268 75% 8%;
+  --popover-foreground: 210 20% 98%;
+
+  /* User's Purple Palette - Primary & Accents */
+  --primary: 270 100% 60%;
+  /* #7f00ff - Brightest Purple */
+  --primary-foreground: 210 20% 98%;
+
+  --secondary: 268 50% 20%;
+  /* Muted Purple for secondary actions */
+  --secondary-foreground: 210 20% 98%;
+
+  --muted: 268 30% 15%;
+  --muted-foreground: 268 20% 70%;
+
+  --accent: 268 60% 25%;
+  /* Rich purple accent for hover states */
+  --accent-foreground: 210 20% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 20% 98%;
+
+  /* Purple-tinted Borders */
+  --border: 268 30% 20%;
+  /* Subtle purple border */
+  --input: 268 30% 20%;
+  --ring: 270 100% 60%;
+  /* #7f00ff */
+
+  --radius: 0.5rem;
+
+  /* Professional Accent Palette (Based on user palette) */
+  --accent-purple: 270 100% 64%;
+  /* Balanced #7f00ff */
+  --accent-purple-muted: 270 50% 30%;
+  --accent-purple-glow: 270 100% 64% / 0.15;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-[#7f00ff]/30 selection:text-white;
+    /* font-feature-settings removed for better readability */
+  }
+
+  /* Linear-like smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+
+  /* Professional Glass Panel - Neutral with Accent Potential */
+  .glass-panel {
+    @apply bg-zinc-950/40 backdrop-blur-xl border border-white/5 shadow-2xl transition-all duration-300;
+  }
+
+  .glass-panel-accent {
+    @apply glass-panel border-[#7f00ff]/20 shadow-[#7f00ff]/5;
+  }
+
+  /* Professional Hover State - Pure CSS for robustness */
+  .hover-tilt-accent {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-tilt-accent:hover {
+    border-color: rgba(127, 0, 255, 0.3) !important;
+    box-shadow: 0 0 20px rgba(127, 0, 255, 0.1);
+  }
+
+  /* Linear-style Button Base */
+  .btn-linear {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  /* Text Gradient Utility using User's Colors */
+  /* Premium Silver/Grey Gradient */
+  .text-gradient-premium {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-500;
+  }
+
+  /* User's Purple Identity Gradient (Restored) */
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-[#d8b4fe] to-[#7f00ff];
+  }
+
+  /* Prestige Typographic Utilities */
+  .label-prestige {
+    @apply text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600;
+  }
+
+  .badge-prestige {
+    @apply px-2.5 py-1 rounded-full border text-[9px] font-bold uppercase tracking-[0.2em] flex items-center justify-center;
+  }
+
+  .text-tech {
+    @apply font-mono tracking-tighter;
+  }
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
